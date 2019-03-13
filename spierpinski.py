@@ -25,19 +25,22 @@ class SierpinskiTriangle:
   
   def left(self, fwd, angle): 
     self.turt.left(angle)
-    return fwd, angle
+    self.fwd = fwd
+    self.angle = angle
   	
   def right(self, fwd, angle):
     self.turt.right(angle)
-    return fwd, angle
+    self.fwd = fwd
+    self.angle = angle
   	
   def forward(self, fwd, angle):
     self.turt.forward(fwd)
-    return fwd, angle
+    self.fwd = fwd
+    self.angle = angle
   	
   def draw(self):
     for i in self.path:
-  	  self.fwd, self.angle = {'↩':self.left, '↪':self.right, '↗':self.forward, '↖':self.forward}[i](self.fwd, self.angle)
+  	  {'↩':self.left, '↪':self.right, '↗':self.forward, '↖':self.forward}[i](self.fwd, self.angle)
 	
 t = SierpinskiTriangle(400.0, 5)
 t.draw()
